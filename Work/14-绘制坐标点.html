@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>canvas绘制一条直线</title>
+  <style>
+    /* 因为canvas画图中每一个宽和高 起始代表每一个css像素 ,所以不能用css去控制其大小
+      只能有两种方式 ---标签的属性  js的canvas对象的属性
+    */
+
+    /* canvas {
+      width: 600px;
+      height: 300px;
+    } */
+  </style>
+</head>
+
+<body>
+  <!-- 1.准备一张纸(添加canvas标签) -->
+  <canvas></canvas>
+
+  <script>
+    // 2.获取纸(获取canvas元素)
+    var canvas = document.querySelector('canvas');
+    canvas.width = 600;
+    canvas.height = 300;
+    canvas.style.border = '1px solid #ff0000';
+    // 3.准备画笔(canvas上下文)
+    var context = canvas.getContext('2d');// 给我们准备一个画2d的图像的画笔
+
+    //功能：制作坐标点（数据小方块）
+    //步骤
+    //1.确定小方块的大小（aquareWidth） 宽高是10 的正方形
+    var sWidth = 10;
+    //2.模拟一个假数据（这是正方形中心点的坐标）
+    var data = {
+        x:320,
+        y:240
+    }
+    //3.计算小方块的四个点的坐标
+    //3.1确定小方块左上角的坐标
+    context.moveTo(data.x-sWidth/2,data.y-sWidth/2);
+    context.lineTo(data.x+sWidth/2,data.y-sWidth/2);
+    context.lineTo(data.x+sWidth/2,data.y+sWidth/2);
+    context.lineTo(data.x-sWidth/2,data.y+sWidth/2);
+    context.closePath();
+
+    context.fill();
+
+
+  </script>
+</body>
+
+</html>

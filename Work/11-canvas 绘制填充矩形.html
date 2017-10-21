@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>canvas 绘制填充矩形</title>
+</head>
+
+<body>
+    <canvas></canvas>
+    <script>
+        // 1.获取画布
+        var canvas = document.querySelector('canvas');
+        canvas.width = 600;
+        canvas.height = 300;
+        canvas.style.border = '1px solid #ff0000';
+        // 2.获取画笔
+        var context = canvas.getContext('2d');
+
+
+        //3.绘制矩形 三种 
+        //context.rect(矩形的X轴，矩形的Y轴，矩形的宽，矩形的高) 如果想要显示图像 需要调用stroke方法或fill方法
+        context.rect(100,100,200,100);
+        context.stroke();
+
+       // context.strokeRect(矩形的x轴,矩形的y轴,矩形的宽,矩形的高);
+        context.strokeRect(100,100,200,100);
+
+        context.fillRect(矩形的x轴,矩形的y轴,矩形的宽,矩形的高);
+
+        context.fillStyle = 'red';//fillStyle方法必须放在fillRect上面
+        context.fillRect(100,100,200,100);
+
+          // 抹除矩形区域
+      // context.clearRect(矩形的X轴,矩形的Y轴,矩形的宽,矩形的高)
+
+      // context.clearRect(110,110,180,80);
+
+
+    </script>
+</body>
+
+</html>
